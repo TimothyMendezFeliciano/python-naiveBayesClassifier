@@ -1,0 +1,59 @@
+{
+    "metadata": {
+        "kernelspec": {
+            "name": "python3",
+            "display_name": "Python 3 (ipykernel)",
+            "language": "python"
+        }
+    },
+    "nbformat": 4,
+    "nbformat_minor": 2,
+    "cells": [
+        {
+            "cell_type": "code",
+            "execution_count": 2,
+            "metadata": {},
+            "outputs": [
+                {
+                    "name": "stdout",
+                    "output_type": "stream",
+                    "text": "[5000, 5000, 980, 1135]\nYour trainset and testset are generated successfully!\n"
+                }
+            ],
+            "source": [
+                "import numpy\n",
+                "import scipy.io\n",
+                "import math\n",
+                "import geneNewData\n",
+                "\n",
+                "def main():\n",
+                "    myID='0900' #your ID here\n",
+                "    geneNewData.geneData(myID)\n",
+                "    Numpyfile0 = scipy.io.loadmat('digit0_stu_train'+myID+'.mat')\n",
+                "    Numpyfile1 = scipy.io.loadmat('digit1_stu_train'+myID+'.mat')\n",
+                "    Numpyfile2 = scipy.io.loadmat('digit0_testset'+'.mat')\n",
+                "    Numpyfile3 = scipy.io.loadmat('digit1_testset'+'.mat')\n",
+                "    train0 = Numpyfile0.get('target_img')\n",
+                "    train1 = Numpyfile1.get('target_img')\n",
+                "    test0 = Numpyfile2.get('target_img')\n",
+                "    test1 = Numpyfile3.get('target_img')\n",
+                "    print([len(train0),len(train1),len(test0),len(test1)])\n",
+                "    print('Your trainset and testset are generated successfully!')\n",
+                "    pass\n",
+                "\n",
+                "\n",
+                "if __name__ == '__main__':\n",
+                "    main()"
+            ]
+        },
+        {
+            "cell_type": "code",
+            "execution_count": 0,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                ""
+            ]
+        }
+    ]
+}
